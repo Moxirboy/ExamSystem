@@ -3,6 +3,7 @@
 #include <fstream>
 using namespace std;
 class Person
+
 {
 private:
     string name;
