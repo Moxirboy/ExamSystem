@@ -2,19 +2,22 @@
 #include <string>
 #include <fstream>
 using namespace std;
-class person{
+class person
+{
 private:
     string ID;
     string password;
+
 public:
-person(string id,string password){
-    ID=id;
-    this->password=password;
-    
-}
+    person(string id, string password)
+    {
+        ID = id;
+        this->password = password;
+    }
 };
-int main(){
-    cout<<"boshlimizmi???????????";
+int main()
+{
+    cout << "boshlimizmi???????????";
     system("pause");
     return 0;
 }
