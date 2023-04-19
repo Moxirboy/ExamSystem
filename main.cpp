@@ -5,5 +5,7 @@ int main(){
 
 
     cout << "qachon ????" << endl;
+    system("pause");
     return 0;
+   
 }
