@@ -97,47 +97,41 @@ int main(){
     student person1;
     teacher techone;
     string name,password;
-    cout<<"enter name ";
-    cin>>name;
-    cout<<"enter pasword";
-    cin>>password;
-    techone.filesaver(name,password);
     do{
-        int l=0;
-        cout<<"teacher or student "<<endl;
+        int l;
+        int f;
+        cout<<"1-teacher or 2-student or 0-out "<<endl;
         cin>>l;
         switch (l)
         {
         case 1:
-               cout<<"Login or sign " <<endl;
-        cin>>l;
-    switch (l){
-        case 1:
+        cout<<"1-Login or 2-sign or 0-out " <<endl;
+        cin>>f;
+    switch (f){
+    case 1:
     cout<<"enter name ";
     cin>>name;
-    cout<<"enter pasword";
+    cout<<"enter password ";
     cin>>password;
     person1.filesaver(name,password);
-            break;
+     break;
     case 2:
     cout<<"name:";
     cin>>name;
     cout<<"Password:";
     cin>>password;
     person1.filereader(name,password);
-    case 3: exit(0);break;    
-    default:break;}
-    case 2: cout<<"name:";
+    break;
+    case 0: exit(0);break;    
+    default:cout<<"invalid";break;} break;
+    case 2: 
+    cout<<"name:";
     cin>>name;
     cout<<"Password:";
     cin>>password;
-    techone.filereader(name,password);
+    techone.filereader(name,password);break;
     
-    
-    default:
-            break;}
-        
-    }while(a);
-    system("pause");
+    case 0: exit(0);break;
+    default: cout<<"invalid";break; }}while(a);
     return 0;
 }
