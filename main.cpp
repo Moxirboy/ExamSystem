@@ -1,6 +1,9 @@
 #include<iostream>
 #include<string>
 #include<fstream>
+#include <cstdlib>
+
+#define Clear system("cls");
 using namespace std;
 class person{
     protected:
@@ -100,8 +103,9 @@ int main(){
     do{
         int l;
         int f;
-        cout<<"1-teacher or 2-student or 0-out "<<endl;
+        cout<<"1- student or 2-teacher or 0-out "<<endl;
         cin>>l;
+        Clear
         switch (l)
         {
         case 1:
@@ -114,6 +118,7 @@ int main(){
     cout<<"enter password ";
     cin>>password;
     person1.filesaver(name,password);
+    Clear
      break;
     case 2:
     cout<<"name:";
@@ -121,6 +126,7 @@ int main(){
     cout<<"Password:";
     cin>>password;
     person1.filereader(name,password);
+    Clear
     break;
     case 0: exit(0);break;    
     default:cout<<"invalid";break;} break;
@@ -129,9 +135,11 @@ int main(){
     cin>>name;
     cout<<"Password:";
     cin>>password;
-    techone.filereader(name,password);break;
+    techone.filereader(name,password);Clear break;
     
     case 0: exit(0);break;
     default: cout<<"invalid";break; }}while(a);
+    Clear
+    system("pause");
     return 0;
 }
