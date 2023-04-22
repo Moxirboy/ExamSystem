@@ -2,9 +2,26 @@
 #include<string>
 #include<fstream>
 #include <cstdlib>
-
+#include<conio.h>
+#include <stdio.h>
+#include <windows.h>
 #define Clear system("cls");
 using namespace std;
+/*class multiple_choice_data {
+name
+
+}*/
+
+
+
+
+
+
+
+
+
+
+
 class person{
     protected:
     string name;
@@ -103,6 +120,7 @@ int main(){
     do{
         int l;
         int f;
+        int ch;
         cout<<"1- student or 2-teacher or 0-out "<<endl;
         cin>>l;
         Clear
