@@ -155,6 +155,7 @@ int main(){
     cout<<"Password:";
     cin>>password;
     techone.filereader(name,password);  break;
+   
     
     case 0: exit(0);break;
     default: cout<<"invalid";break; }}while(a);
