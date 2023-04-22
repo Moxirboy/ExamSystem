@@ -82,7 +82,7 @@ void filesaver(string name,string password){
     
     outfile << name<<endl<<password<<endl;
     outfile.close();}
-    void filereader(string name,string password){
+void filereader(string name,string password){
         ifstream infile("person",ios::in);
         string line;
         bool found=false;
@@ -99,7 +99,7 @@ void filesaver(string name,string password){
                 break;
             }
         }
-        if (found) {
+    if (found) {
         cout << "Found the word '" << name << "' in the file." << endl;
     } else {
         cout << "Did not find the word '" << name<< "' in the file." << endl;
@@ -113,14 +113,13 @@ void filesaver(string name,string password){
     }
 };
 int main(){
-    int a=5;
+    int a=2;
     student person1;
     teacher techone;
     string name,password;
     do{
         int l;
         int f;
-        int ch;
         cout<<"1- student or 2-teacher or 0-out "<<endl;
         cin>>l;
         Clear
@@ -129,21 +128,23 @@ int main(){
         case 1:
         cout<<"1-Login or 2-sign or 0-out " <<endl;
         cin>>f;
+        Clear
     switch (f){
     case 1:
     cout<<"enter name ";
     cin>>name;
     cout<<"enter password ";
     cin>>password;
-    person1.filesaver(name,password);
-    Clear
-     break;
+    person1.filereader(name,password);
+    
+    
+    break;
     case 2:
     cout<<"name:";
     cin>>name;
     cout<<"Password:";
     cin>>password;
-    person1.filereader(name,password);
+    person1.filesaver(name,password);
     Clear
     break;
     case 0: exit(0);break;    
@@ -153,7 +154,7 @@ int main(){
     cin>>name;
     cout<<"Password:";
     cin>>password;
-    techone.filereader(name,password);Clear break;
+    techone.filereader(name,password);  break;
     
     case 0: exit(0);break;
     default: cout<<"invalid";break; }}while(a);
