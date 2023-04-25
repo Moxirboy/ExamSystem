@@ -2,30 +2,9 @@
 #include<string>
 #include<fstream>
 #include <cstdlib>
-
+#include "hozircha.h"
 #define Clear system("cls");
 using namespace std;
-class essay {
-public: void writer() {
-    ofstream outfile("test.txt", ios::app);
-    if (!outfile.is_open()) {
-        cout << "Failed to open file." << endl;
-    }
-    string c;
-    cout << "name of question" << endl;
-    cin >> c;
-    outfile <<"!!" << c <<"!!" << endl;
-    char ch;
-    cout << "type '$' when it is done" << endl;
-    outfile << "$";
-    do {
-        ch = std::cin.get();
-        outfile.put(ch);
-        
-    } while (ch != '$');
-    outfile.close();
-}
-};
 class person {
 protected:
     string name;
@@ -170,35 +149,13 @@ int main() {
     // Clear
     // essay s;
     // s.writer();
-    string filename = "myfile.txt";
-    string word_to_find = "hello";
-    ifstream file(filename);
+    essay c;
+  
+    c.seek();
+    c.seek();
+    c.seekName();
+    c.seekName();
 
-    if (file.is_open()) {
-        string line;
-        int line_number = 0;
-        int word_position = -1;
-        int cumulative_length = 0;
-
-        while (getline(file, line)) {
-            line_number++;
-            word_position = line.find(word_to_find);
-            if (word_position != -1) {
-                cout << "Word found on line " << line_number << " at position " << word_position << endl;
-                cout << "Position in file: " << cumulative_length + word_position << endl;
-                break;
-            }
-            cumulative_length += line.length() + 1; // add 1 for the newline character
-        }
-
-        if (word_position == -1) {
-            cout << "Word not found in file." << endl;
-        }
-
-        file.close();
-    }
-    else {
-        cout << "Error opening file." << endl;
-    }
+    c.seekName();
     return 0;
 }
