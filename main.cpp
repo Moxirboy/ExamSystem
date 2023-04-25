@@ -168,8 +168,37 @@ int main() {
     // case 0: exit(0);break;
     // default: cout<<"invalid";break; }}while(a);
     // Clear
-    essay s;
-    s.writer();
-    system("pause");
+    // essay s;
+    // s.writer();
+    string filename = "myfile.txt";
+    string word_to_find = "hello";
+    ifstream file(filename);
+
+    if (file.is_open()) {
+        string line;
+        int line_number = 0;
+        int word_position = -1;
+        int cumulative_length = 0;
+
+        while (getline(file, line)) {
+            line_number++;
+            word_position = line.find(word_to_find);
+            if (word_position != -1) {
+                cout << "Word found on line " << line_number << " at position " << word_position << endl;
+                cout << "Position in file: " << cumulative_length + word_position << endl;
+                break;
+            }
+            cumulative_length += line.length() + 1; // add 1 for the newline character
+        }
+
+        if (word_position == -1) {
+            cout << "Word not found in file." << endl;
+        }
+
+        file.close();
+    }
+    else {
+        cout << "Error opening file." << endl;
+    }
     return 0;
 }
