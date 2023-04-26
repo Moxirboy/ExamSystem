@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #poqi#
 $
 poqi qanday bola
@@ -10,3 +11,17 @@ hoho lala$
 #jojo#
 $
 rperedfk $
+=======
+#komol#$komolkochagachiqadimi$
+#komol#$kochagachiqadimi$
+#komol#$komolchiqadimi$
+#komol#$komolkochaga$
+#komol#$komolkochagachiqadimi$
+#komol#$komolkochagachiqadimi$
+#komol#$komolkochagachiqadimi$
+#komol#$komolkochagachiqadimi$
+#hacha#$jdfjkdfkjdfkjfdkhdfh$
+#koko#$gogokdkkfgoogdjfjjfkfkf$
+#qoq#$skjdkljfklsd$
+#jjdf#$fkjgkdjg$
+>>>>>>> Stashed changes
