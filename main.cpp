@@ -150,12 +150,9 @@ int main() {
     // essay s;
     // s.writer();
     essay c;
-  
-    c.seek();
-    c.seek();
-    c.seekName();
-    c.seekName();
+    c.showStudentsNames();
 
-    c.seekName();
+
+
     return 0;
 }
