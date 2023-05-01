@@ -4,13 +4,13 @@
 #include <cstdlib>
 #define Clear system("cls");
 using namespace std;
-class person
+class Person
 {
 protected:
     string name;
     string password;
 };
-class teacher : person
+class Teacher : Person
 {
 public:
     void filesaver(string name, string password)
@@ -67,7 +67,7 @@ public:
     }
 };
 
-class student : person
+class Student : Person
 {
 public:
     void filesaver(string name, string password)
@@ -123,7 +123,7 @@ public:
         }
     }
 };
-class essay
+class Essay
 {
 public:
     void writer()
@@ -162,8 +162,9 @@ public:
             bool found = false;
             char symbol = '#';
             cout << a << ".";
-            for (char c : line)
-            { // iterate over characters in line
+            for (int i = 0; i < line.size(); i++)
+            {
+                char c = line[i];
                 if (c == symbol)
                 {
                     found = true;
@@ -196,8 +197,9 @@ public:
             g++;
             if (g == a)
             {
-                for (char c : line)
-                { // iterate over characters in line
+                for (int i = 0; i < line.size(); i++)
+                {
+                    char c = line[i];
                     if (c == symbol)
                     {
                         found = true;
@@ -244,8 +246,9 @@ public:
             bool found = false;
             char symbol = '#';
             cout << a << ".";
-            for (char c : line)
-            { // iterate over characters in line
+            for (int i = 0; i < line.size(); i++)
+            {
+                char c = line[i];
                 if (c == symbol)
                 {
                     found = true;
@@ -280,8 +283,9 @@ public:
             g++;
             if (g == a)
             {
-                for (char c : line)
-                { // iterate over characters in line
+                for (int i = 0; i < line.size(); i++)
+                {
+                    char c = line[i];
                     if (c == symbol)
                     {
                         found = true;
@@ -299,6 +303,7 @@ public:
         char l;
         cout << "do you want to evaluate (Y/N)" << endl;
         cin >> l;
+        char h;
         string korishga;
         if (l == 'Y' || l == 'y')
         {
@@ -320,8 +325,9 @@ public:
                 char symbol = '#';
                 if (g == a)
                 {
-                    for (char c : line)
-                    { // iterate over characters in line
+                    for (int i = 0; i < line.size(); i++)
+                    {
+                        char c = line[i];
                         if (c == symbol)
                         {
                             found = true;
@@ -348,8 +354,9 @@ public:
                 g++;
                 if (g == a)
                 {
-                    for (char c : line)
-                    { // iterate over characters in line
+                    for (int i = 0; i < line.size(); i++)
+                    {
+                        char c = line[i];
                         if (c == symbol)
                         {
                             found = true;
@@ -362,18 +369,20 @@ public:
                     }
                 }
             }
-            outfile << h;
-            char ch;
-            cout << "type '$' when it is done" << endl;
-            outfile << "$";
-            do
-            {
-                cin >> ch;
-                outfile.put(ch);
-
-            } while (ch != '$');
-            file.close();
-            outfile.close();
         }
+        outfile << h;
+        char ch;
+        cout << "type '$' when it is done" << endl;
+        outfile << "$";
+        do
+        {
+            cin >> ch;
+            outfile.put(ch);
+
+        } while (ch != '$');
+        file.close();
+        outfile.close();
     }
-};
+}
+
+;
