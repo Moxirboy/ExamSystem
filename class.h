@@ -22,7 +22,7 @@ public:
         }
 
         outfile << name << endl
-            << password << endl;
+                << password << endl;
         outfile.close();
     }
     void filereader(string name, string password)
@@ -79,7 +79,7 @@ public:
         }
 
         outfile << name << endl
-            << password << endl;
+                << password << endl;
         outfile.close();
     }
     void filereader(string name, string password)
@@ -140,7 +140,8 @@ public:
         do
         {
             ch = cin.get();
-            if (ch == '\n') {
+            if (ch == '\n')
+            {
                 ch = ' ';
             }
             outfile.put(ch);
@@ -153,7 +154,8 @@ public:
         do
         {
             ch = cin.get();
-            if (ch == '\n') {
+            if (ch == '\n')
+            {
                 ch = ' ';
             }
             outfile.put(ch);
@@ -258,7 +260,6 @@ public:
                     {
                         outfile << c;
                     }
-
                 }
             }
         }
@@ -272,7 +273,8 @@ public:
         do
         {
             ch = cin.get();
-            if (ch == '\n') {
+            if (ch == '\n')
+            {
                 ch = ' ';
             }
             outfile.put(ch);
@@ -334,7 +336,8 @@ public:
                         found = true;
                         continue;
                     }
-                    if (c == '$') {
+                    if (c == '$')
+                    {
                         break;
                     }
                     if (found)
@@ -364,7 +367,8 @@ public:
                     helper++;
                     continue;
                 }
-                if (c == '#') {
+                if (c == '#')
+                {
                     helper = 0;
                     cout << endl;
                     break;
@@ -372,7 +376,8 @@ public:
 
                 if (found)
                 {
-                    if (helper == 1) {
+                    if (helper == 1)
+                    {
                         cout << line_of_question << ".";
                         helper++;
                     }
@@ -398,7 +403,8 @@ public:
                         found = true;
                         continue;
                     }
-                    if (c == '#') {
+                    if (c == '#')
+                    {
                         break;
                     }
                     if (found)
@@ -445,12 +451,13 @@ public:
         char l;
         cout << "do you want to evaluate (Y/N)" << endl;
         cin >> l;
-        if (l == 'y' || l == 'Y') {
+        if (l == 'y' || l == 'Y')
+        {
 
             ifstream fil("answer.txt", ios::app);
             string line;
             int f = 0;
-           // cout << "Id:";
+            // cout << "Id:";
             outile << "^";
             while (getline(fil, line))
             { // read file line by line
@@ -466,7 +473,8 @@ public:
                             found = true;
                             continue;
                         }
-                        if (c == '$') {
+                        if (c == '$')
+                        {
                             break;
                         }
                         if (found)
@@ -481,7 +489,7 @@ public:
             ifstream fle("answer.txt", ios::app);
             string sine;
             int x = 0;
-            //cout << "Question:";
+            // cout << "Question:";
             outile << "@";
             while (getline(fle, sine))
             { // read file line by line
@@ -497,7 +505,8 @@ public:
                             found = true;
                             continue;
                         }
-                        if (c == '#') {
+                        if (c == '#')
+                        {
                             break;
                         }
                         if (found)
@@ -520,39 +529,48 @@ public:
             do
             {
                 ch = cin.get();
-                if (ch == '\n') {
+                if (ch == '\n')
+                {
                     ch = ' ';
                 }
                 outile.put(ch);
 
             } while (ch != '#');
-            
+
             cout << "do u want to leave comment Y/N" << endl;
             char s;
-            cin >>s;
-            if (s == 'y' || s == 'Y') {
+            cin >> s;
+            if (s == 'y' || s == 'Y')
+            {
                 cout << "Enter qcomment" << endl;
                 cout << "type '$' when it is done" << endl;
                 outile << "$";
                 do
                 {
                     ch = cin.get();
-                    if (ch == '\n') {
+                    if (ch == '\n')
+                    {
                         ch = ' ';
                     }
                     outile.put(ch);
 
                 } while (ch != '$');
-                
             }
-            else { cout << "Happy for you!!"; }
+            else
+            {
+                cout << "Happy for you!!";
+            }
             outile << endl;
             outile.close();
             file.close();
         }
-        else { cout << "Happy for you!!"; }
+        else
+        {
+            cout << "Happy for you!!";
+        }
     }
-    void get_mark(string name) {
+    void get_mark(string name)
+    {
         ifstream outfile("marks.txt", ios::app);
         string line2;
         string line;
@@ -566,17 +584,17 @@ public:
                 break;
             }
         }
-        
-        if (found) 
+
+        if (found)
         {
             outfile.seekg(0);
             int choice;
             ifstream file("marks.txt", ios::app);
             string sine;
             int line_of_question = 0;
-            int helper=0;
+            int helper = 0;
             cout << "YOU answered to this questions";
-          
+
             while (getline(file, sine))
             { // read file line by line
                 bool found = false;
@@ -590,7 +608,8 @@ public:
                         helper++;
                         continue;
                     }
-                    if (c == '#') {
+                    if (c == '#')
+                    {
                         helper = 0;
                         cout << endl;
                         break;
@@ -598,7 +617,8 @@ public:
 
                     if (found)
                     {
-                        if (helper == 1) {
+                        if (helper == 1)
+                        {
                             cout << line_of_question << ".";
                             helper++;
                         }
@@ -616,7 +636,8 @@ public:
                 bool found = false;
                 char symbol = '#';
                 helper1++;
-                if (helper1 == choice) {
+                if (helper1 == choice)
+                {
                     for (char c : line)
                     { // iterate over characters in line
                         if (c == symbol)
@@ -624,7 +645,8 @@ public:
                             found = true;
                             continue;
                         }
-                        if (c == '$') {
+                        if (c == '$')
+                        {
 
                             break;
                         }
@@ -644,7 +666,8 @@ public:
                 bool found = false;
                 char symbol = '$';
                 helper1++;
-                if (helper1 == choice) {
+                if (helper1 == choice)
+                {
                     for (char c : line1)
                     { // iterate over characters in line
                         if (c == symbol)
@@ -652,7 +675,8 @@ public:
                             found = true;
                             continue;
                         }
-                        if (c == '$') {
+                        if (c == '$')
+                        {
 
                             break;
                         }
@@ -666,10 +690,9 @@ public:
                 }
             }
         }
-        else{
+        else
+        {
             cout << "You havent answered yet!!" << endl;
         }
-
-        
     }
 };
