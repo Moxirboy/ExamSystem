@@ -1,72 +1,35 @@
 #include <iostream>
-#include <string>
 #include <fstream>
-#include <class.h>
 using namespace std;
-int main()
-{
-    string app_state = "executing";
-    Student student;
-    Teacher teacher;
-    do
-    {
-        string role_state = "executing";
-        int role;
-        string name, password;
 
-        do
-        {
-            cout << "1. Student.\n2. Teacher.\n3. Out.\n>";
-            cin >> role;
-            switch (role)
-            {
-            case 1:
-                int option;
-                cout << "1. Sign up.\n2. Login.\n3. Out\n>";
-                cin >> option;
-                switch (option)
-                {
-                case 1:
-                    cout << "Enter your name: ";
-                    cin >> name;
-                    cout << "Enter your password: ";
-                    cin >> password;
-                    student.filesaver(name, password);
-                    break;
-                case 2:
-                    cout << "Enter your name: ";
-                    cin >> name;
-                    cout << "Enter your password: ";
-                    cin >> password;
+int main() {
+    string filename = "example.txt";
+    ofstream outfile(filename);  // create a new file named "example.txt"
 
-                    student.filereader(name, password);
-                    break;
-                case 0:
-                    exit(0);
-                    break;
-                default:
-                    cout << "Invalid credentials!";
-                    break;
-                }
-                break;
-            case 2:
-                cout << "Enter your name: ";
-                cin >> name;
-                cout << "Enter your password: ";
-                cin >> password;
+    if (!outfile) {   // check if the file was successfully created
+        cerr << "Error creating file." << endl;
+        return 1;
+    }
 
-                teacher.filereader(name, password);
-                break;
+    string input_string = "This is an example string.";
+    outfile << input_string << endl;  // write the string to the file
+    outfile.close();  // close the file
 
-            case 3:
-                app_state = "exit";
-                break;
-            default:
-                cout << "Invalid credentials!";
-                break;
-            }
-        } while (role_state == "executing");
+    ifstream infile(filename);  // open the file for reading
+    if (!infile) {   // check if the file was successfully opened
+        cerr << "Error opening file." << endl;
+        return 1;
+    }
 
-    } while (app_state == "executing");
+    // find the pointers in the file
+    string line;
+    while (getline(infile, line)) {
+        const char* cstr = line.c_str();  // convert the line to a C string
+        const char* start_ptr = strstr(cstr, "example");  // find the start pointer
+        const char* end_ptr = start_ptr + strlen("example");  // find the end pointer
+        cout << "Start pointer: " << start_ptr << endl;
+        cout << "End pointer: " << end_ptr << endl;
+    }
+    infile.close();  // close the file
     return 0;
 }
