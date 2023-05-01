@@ -128,7 +128,7 @@ class essay
 public:
     void writer()
     {
-        char ch;
+        char character;
         ofstream outfile("test.txt", ios::app);
         if (!outfile.is_open())
         {
@@ -139,28 +139,28 @@ public:
         cout << "name of question \ntype '#' when it is done" << endl;
         do
         {
-            ch = cin.get();
-            if (ch == '\n')
+            character = cin.get();
+            if (character == '\n')
             {
-                ch = ' ';
+                character = ' ';
             }
-            outfile.put(ch);
+            outfile.put(character);
 
-        } while (ch != '#');
+        } while (character != '#');
 
         cout << "Enter question" << endl;
         cout << "type '$' when it is done" << endl;
         outfile << "$";
         do
         {
-            ch = cin.get();
-            if (ch == '\n')
+            character = cin.get();
+            if (character == '\n')
             {
-                ch = ' ';
+                character = ' ';
             }
-            outfile.put(ch);
+            outfile.put(character);
 
-        } while (ch != '$');
+        } while (character != '$');
         outfile << endl;
         outfile.close();
     }
@@ -169,56 +169,56 @@ public:
         ifstream outfile("test.txt");
         string line;
         cout << "Questions:" << endl;
-        int a = 1;
+        int line_of_quetion = 1;
         while (getline(outfile, line))
         {
             bool found = false;
             char symbol = '#';
-            cout << a << ".";
-            for (char c : line)
+            cout << line_of_quetion << ".";
+            for (char character : line)
             { // iterate over characters in line
-                if (c == symbol)
+                if (character == symbol)
                 {
                     found = true;
                     continue;
                 }
-                if (c == '$')
+                if (character == '$')
                 {
                     break;
                 }
                 if (found)
                 {
-                    cout << c;
+                    cout << character;
                 }
             }
             cout << "  ";
-            a++;
+            line_of_quetion++;
         }
         outfile.close();
     }
-    void Question(int a)
+    void Question(int line_of_quetion)
     {
         ifstream outfile("test.txt", ios::app);
         string line;
-        int g = 0;
+        int checker_of_matching = 0;
         cout << "Question:";
         while (getline(outfile, line))
         { // read file line by line
             bool found = false;
             char symbol = '$';
-            g++;
-            if (g == a)
+            checker_of_matching++;
+            if (checker_of_matching == line_of_quetion)
             {
-                for (char c : line)
+                for (char character : line)
                 { // iterate over characters in line
-                    if (c == symbol)
+                    if (character == symbol)
                     {
                         found = true;
                         continue;
                     }
                     if (found)
                     {
-                        cout << c;
+                        cout << character;
                     }
                 }
             }
@@ -226,7 +226,7 @@ public:
         cout << endl;
         outfile.close();
     }
-    void Write_Answer(string name, int a)
+    void Write_Answer(string name, int line_of_quetion)
     {
 
         ofstream outfile("answer.txt", ios::app);
@@ -236,29 +236,29 @@ public:
         }
         ifstream file("test.txt", ios::app);
         string line;
-        int g = 0;
+        int checker_of_matching = 0;
         outfile << "~";
         while (getline(file, line))
         { // read file line by line
             bool found = false;
             char symbol = '#';
-            g++;
-            if (g == a)
+            checker_of_matching++;
+            if (checker_of_matching == line_of_quetion)
             {
-                for (char c : line)
+                for (char character : line)
                 { // iterate over characters in line
-                    if (c == symbol)
+                    if (character == symbol)
                     {
                         found = true;
                         continue;
                     }
-                    if (c == '$')
+                    if (character == '$')
                     {
                         break;
                     }
                     if (found)
                     {
-                        outfile << c;
+                        outfile << character;
                     }
                 }
             }
@@ -266,20 +266,20 @@ public:
         outfile << "~";
         cout << endl;
         outfile << "#" << name << "#";
-        char ch;
+        char character;
         cout << "Enter Answer" << endl;
         cout << "type '$' when it is done" << endl;
         outfile << "$";
         do
         {
-            ch = cin.get();
-            if (ch == '\n')
+            character = cin.get();
+            if (character == '\n')
             {
-                ch = ' ';
+                character = ' ';
             }
-            outfile.put(ch);
+            outfile.put(character);
 
-        } while (ch != '$');
+        } while (character != '$');
         outfile << endl;
         outfile.close();
         file.close();
@@ -289,45 +289,45 @@ public:
         ifstream outfile("answer.txt");
         string line;
         cout << "Students names:" << endl;
-        int a = 1;
+        int line_of_name = 1;
         while (getline(outfile, line))
         {
             bool found = false;
             char symbol = '#';
-            cout << a << ".";
-            for (char c : line)
+            cout << line_of_name << ".";
+            for (char character : line)
             { // iterate over characters in line
-                if (c == symbol)
+                if (character == symbol)
                 {
                     found = true;
                     continue;
                 }
-                if (c == '$')
+                if (character == '$')
                 {
                     break;
                 }
                 if (found)
                 {
-                    cout << c;
+                    cout << character;
                 }
             }
             cout << "  ";
-            a++;
+            line_of_name++;
         }
         outfile.close();
     }
-    void show_answer(int a)
+    void show_answer(int line_of_name)
     {
         ifstream file("answer.txt", ios::app);
         string line;
-        int f = 0;
+        int checker_of_matching = 0;
         cout << "Name:";
         while (getline(file, line))
         { // read file line by line
             bool found = false;
             char symbol = '#';
-            f++;
-            if (f == a)
+            checker_of_matching++;
+            if (checker_of_matching == line_of_name)
             {
                 for (char c : line)
                 { // iterate over characters in line
@@ -385,18 +385,18 @@ public:
                 }
             }
         }
-        ifstream ile("answer.txt", ios::app);
-        string sine;
-        int x = 0;
+        ifstream file_1("answer.txt", ios::app);
+        string line3;
+        int checker_of_matching1 = 0;
         cout << "Question:";
-        while (getline(ile, sine))
+        while (getline(file_1, line3))
         { // read file line by line
             bool found = false;
             char symbol = '~';
-            x++;
-            if (x == a)
+            checker_of_matching1++;
+            if (checker_of_matching1 == line_of_name)
             {
-                for (char c : sine)
+                for (char c : line3)
                 { // iterate over characters in line
                     if (c == symbol)
                     {
@@ -415,20 +415,20 @@ public:
             }
         }
         cout << endl;
-        ile.close();
-        ifstream outfile("answer.txt");
-        string kine;
-        int g = 0;
+        file_1.close();
+        ifstream file_2("answer.txt");
+        string line5;
+        int checker = 0;
         cout << endl;
         cout << "Answer:" << endl;
-        while (getline(outfile, kine))
+        while (getline(file_2, line5))
         { // read file line by line
             bool found = false;
             char symbol = '$';
-            g++;
-            if (g == a)
+            checker++;
+            if (checker == line_of_name)
             {
-                for (char c : kine)
+                for (char c : line5)
                 { // iterate over characters in line
                     if (c == symbol)
                     {
@@ -446,7 +446,7 @@ public:
         cout << endl;
         cout << "***************************************************************************" << endl;
 
-        outfile.close();
+        file_2.close();
         ofstream outile("marks.txt", ios::app);
         char l;
         cout << "do you want to evaluate (Y/N)" << endl;
@@ -456,15 +456,15 @@ public:
 
             ifstream fil("answer.txt", ios::app);
             string line;
-            int f = 0;
+            int checker = 0;
             // cout << "Id:";
             outile << "^";
             while (getline(fil, line))
             { // read file line by line
                 bool found = false;
                 char symbol = '#';
-                f++;
-                if (f == a)
+                checker++;
+                if (checker == line_of_name)
                 {
                     for (char c : line)
                     { // iterate over characters in line
@@ -487,18 +487,18 @@ public:
             outile << "^";
             fil.close();
             ifstream fle("answer.txt", ios::app);
-            string sine;
-            int x = 0;
+            string line_6;
+            int checker = 0;
             // cout << "Question:";
             outile << "@";
-            while (getline(fle, sine))
+            while (getline(fle, line_6))
             { // read file line by line
                 bool found = false;
                 char symbol = '~';
-                x++;
-                if (x == a)
+                checker++;
+                if (checker == line_of_name)
                 {
-                    for (char c : sine)
+                    for (char c : line_6)
                     { // iterate over characters in line
                         if (c == symbol)
                         {
