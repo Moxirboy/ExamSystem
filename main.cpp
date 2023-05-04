@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include "Classes.h"
+
 using namespace std;
 
 int main()
@@ -13,19 +14,34 @@ int main()
     while (app_state == "executing")
     {
         int role;
-        cout << "Choose a role:\n1. Teacher.\n2. Student.\n3. Exit\n>";
+        cout << "Choose a role: \n1. Teacher.\n2. Student.\n3. Exit\n>";
         cin >> role;
-        switch (role) {
+        switch (role)
+        {
         case 1:
-            int teacherAction;
+            int teacher_action;
             cout << "Choose an action: \n1. Sign up.\n2. Login.\n3. Back\n>";
-            cin >> teacherAction;
-            switch (teacherAction) {
+            cin >> teacher_action;
+            switch (teacher_action)
+            {
             case 1:
                 teacher.signup();
                 break;
             case 2:
-                teacher.login();
+                if (teacher.login() == 1)
+                {
+                    int option;
+                    cout << "Choose option: \n1. Create multiple choice questions test.\n>";
+                    cin >> option;
+                    switch (option)
+                    {
+                    case 1:
+                        teacher.create_test();
+                        break;
+                    default:
+                        break;
+                    }
+                }
                 break;
             case 3:
                 break;
@@ -33,11 +49,13 @@ int main()
                 cout << "Invalid credentials!\n";
                 break;
             }
+            break;
         case 2:
-            int studentAction;
+            int student_action;
             cout << "Choose an action: \n1. Sign up.\n2. Login.\n3. Back\n>";
-            cin >> studentAction;
-            switch (studentAction) {
+            cin >> student_action;
+            switch (student_action)
+            {
             case 1:
                 student.signup();
                 break;
@@ -50,6 +68,7 @@ int main()
                 cout << "Invalid credentials!\n";
                 break;
             }
+            break;
         case 3:
             app_state = "exit";
             break;
