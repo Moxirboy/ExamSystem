@@ -1,388 +1,248 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <cstdlib>
-#define Clear system("cls");
 using namespace std;
 class Person
 {
-protected:
+private:
     string name;
     string password;
 };
+
 class Teacher : Person
 {
 public:
     void filesaver(string name, string password)
     {
-        ofstream outfile("Teacher", ios::app);
-        if (!outfile.is_open())
+        ofstream file("teachers.txt", ios::app);
+        if (!file.is_open())
         {
-            cout << "Failed to open file." << endl;
+            cout << "Error opening a file teachers.txt";
+            exit(0);
         }
 
-        outfile << name << endl
-                << password << endl;
-        outfile.close();
+        file << name << "-" << password << endl;
+
+        file.close();
     }
+
     void filereader(string name, string password)
     {
-        ifstream infile("Teacher", ios::in);
-        string line;
-        bool found = false;
-        bool gound = false;
-        while (getline(infile, line))
+        ifstream file("teachers.txt", ios::in);
+
+        if (!file.is_open())
         {
-            if (line.find(name) != string::npos)
-            {
-                found = true;
-                break;
-            }
-        }
-        while (getline(infile, line))
-        {
-            if (line.find(password) != string::npos)
-            {
-                gound = true;
-                break;
-            }
-        }
-        if (found)
-        {
-            cout << "Found the word '" << name << "' in the file." << endl;
-        }
-        else
-        {
-            cout << "Did not find the word '" << name << "' in the file." << endl;
+            cout << "Error opening a file teachers.txt";
+            exit(0);
         }
 
-        if (gound)
+        string line;
+        while (getline(file, line))
         {
-            cout << "Found the word '" << password << "' in the file." << endl;
+            cout << line << endl;
+        }
+
+        file.close();
+    }
+
+    bool userValidator(string requestedName, string requestedPassword)
+    {
+        ifstream file("teachers.txt", ios::in);
+        if (!file.is_open())
+        {
+            cout << "Error opening a file teachers.txt";
+            exit(0);
+        }
+
+        string line;
+        bool isUserValid = false;
+        while (getline(file, line))
+        {
+            string username = "";
+            string password = "";
+            bool isDashFound = false;
+            for (int i = 0; i < line.size(); i++)
+            {
+                if (line[i] == '-')
+                {
+                    isDashFound = true;
+                    continue;
+                }
+
+                if (isDashFound)
+                {
+                    password += line[i];
+                }
+                else
+                {
+                    username += line[i];
+                }
+            }
+            cout << username << endl;
+            cout << password << endl;
+
+            if (requestedName.compare(username) == 0 && requestedPassword.compare(password) == 0)
+            {
+                isUserValid = true;
+                break;
+            }
+        }
+
+        return isUserValid;
+    }
+
+    void signup()
+    {
+        string name;
+        string password;
+        cout << "Enter your name: ";
+        cin >> name;
+        cout << "Enter your password: ";
+        cin >> password;
+
+        filesaver(name, password);
+
+        cout << "Teacher successfully created!" << endl;
+    }
+
+    void login()
+    {
+        string name;
+        string password;
+        cout << "Enter your name: ";
+        cin >> name;
+        cout << "Enter your password: ";
+        cin >> password;
+
+        bool isUserValid = userValidator(name, password); // returns true or false
+
+        if (isUserValid)
+        {
+            cout << "User found!" << endl;
         }
         else
         {
-            cout << "Did not find the word '" << password << "' in the file." << endl;
+            cout << "Invalid Credentials!" << endl;
         }
     }
 };
 
 class Student : Person
 {
-public:
+    public:
+
     void filesaver(string name, string password)
     {
-        ofstream outfile("person", ios::app);
-        if (!outfile.is_open())
+        ofstream file("students.txt", ios::app);
+        if (!file.is_open())
         {
-            cout << "Failed to open file." << endl;
+            cout << "Error opening a file students.txt";
+            return;
         }
 
-        outfile << name << endl
-                << password << endl;
-        outfile.close();
+        file << name << "-" << password << endl;
+
+        file.close();
     }
+
     void filereader(string name, string password)
     {
-        ifstream infile("person", ios::in);
-        string line;
-        bool found = false;
-        bool gound = false;
-        while (getline(infile, line))
+        ifstream file("students.txt", ios::in);
+
+        if (!file.is_open())
         {
-            if (line.find(name) != string::npos)
-            {
-                found = true;
-                break;
-            }
-        }
-        while (getline(infile, line))
-        {
-            if (line.find(password) != string::npos)
-            {
-                gound = true;
-                break;
-            }
-        }
-        if (found)
-        {
-            cout << "Found the word '" << name << "' in the file." << endl;
-        }
-        else
-        {
-            cout << "Did not find the word '" << name << "' in the file." << endl;
+            cout << "Error opening a file students.txt";
+            return;
         }
 
-        if (gound)
+        string line;
+        while (getline(file, line))
         {
-            cout << "Found the word '" << password << "' in the file." << endl;
+            cout << line << endl;
+        }
+
+        file.close();
+    }
+    
+    bool userValidator(string requestedName, string requestedPassword)
+    {
+        ifstream file("students.txt", ios::in);
+        if (!file.is_open())
+        {
+            cout << "Error opening a file teachers.txt";
+            exit(0);
+        }
+
+        string line;
+        bool isUserValid = false;
+        while (getline(file, line))
+        {
+            string username = "";
+            string password = "";
+            bool isDashFound = false;
+            for (int i = 0; i < line.size(); i++)
+            {
+                if (line[i] == '-')
+                {
+                    isDashFound = true;
+                    continue;
+                }
+
+                if (isDashFound)
+                {
+                    password += line[i];
+                }
+                else
+                {
+                    username += line[i];
+                }
+            }
+            cout << username << endl;
+            cout << password << endl;
+
+            if (requestedName.compare(username) == 0 && requestedPassword.compare(password) == 0)
+            {
+                isUserValid = true;
+                break;
+            }
+        }
+
+        return isUserValid;
+    }
+
+
+    void signup()
+    {
+        string name;
+        string password;
+        cout << "Enter your name: ";
+        cin >> name;
+        cout << "Enter your password: ";
+        cin >> password;
+
+        filesaver(name, password);
+
+        cout << "Student successfully created!" << endl;
+    }
+
+    void login()
+    {
+        string name;
+        string password;
+        cout << "Enter your name: ";
+        cin >> name;
+        cout << "Enter your password: ";
+        cin >> password;
+
+        bool isUserValid = userValidator(name, password); // returns true or false
+
+        if (isUserValid)
+        {
+            cout << "Student found!" << endl;
         }
         else
         {
-            cout << "Did not find the word '" << password << "' in the file." << endl;
+            cout << "Invalid Credentials!" << endl;
         }
     }
 };
-class Essay
-{
-public:
-    void writer()
-    {
-        ofstream outfile("test.txt", ios::app);
-        if (!outfile.is_open())
-        {
-            cout << "Failed to open file." << endl;
-        }
-        string c;
-        cout << "name of question" << endl;
-        cin >> c;
-        outfile << "#" << c << "#";
-        char ch;
-        cout << "type '$' when it is done" << endl;
-        outfile << "$";
-        do
-        {
-            cin >> ch;
-            outfile.put(ch);
-
-        } while (ch != '$');
-
-        outfile.close();
-    }
-
-public:
-    void QuestionName()
-    {
-        ifstream outfile("test.txt");
-        string line;
-        cout << "Questions:" << endl;
-        int a = 1;
-        while (getline(outfile, line))
-        {
-            bool found = false;
-            char symbol = '#';
-            cout << a << ".";
-            for (int i = 0; i < line.size(); i++)
-            {
-                char c = line[i];
-                if (c == symbol)
-                {
-                    found = true;
-                    continue;
-                }
-                if (c == '$')
-                {
-                    break;
-                }
-                if (found)
-                {
-                    cout << c;
-                }
-            }
-            cout << "  ";
-            a++;
-        }
-        outfile.close();
-    }
-    void Question(int a)
-    {
-        ifstream outfile("test.txt", ios::app);
-        string line;
-        int g = 0;
-        cout << "Question:";
-        while (getline(outfile, line))
-        { // read file line by line
-            bool found = false;
-            char symbol = '$';
-            g++;
-            if (g == a)
-            {
-                for (int i = 0; i < line.size(); i++)
-                {
-                    char c = line[i];
-                    if (c == symbol)
-                    {
-                        found = true;
-                        continue;
-                    }
-                    if (found)
-                    {
-                        cout << c << " ";
-                    }
-                }
-            }
-        }
-        cout << endl;
-        outfile.close();
-    }
-    void WriteAnswer(string name)
-    {
-        ofstream outfile("answer.txt", ios::app);
-        if (!outfile.is_open())
-        {
-            cout << "Failed to open file." << endl;
-        }
-        outfile << "#" << name << "#";
-        char ch;
-        cout << "type '$' when it is done" << endl;
-        outfile << "$";
-        do
-        {
-            cin >> ch;
-            outfile.put(ch);
-
-        } while (ch != '$');
-        outfile << endl;
-        outfile.close();
-    }
-    void showStudentsNames()
-    {
-        ifstream outfile("answer.txt");
-        string line;
-        cout << "Students names:" << endl;
-        int a = 1;
-        while (getline(outfile, line))
-        {
-            bool found = false;
-            char symbol = '#';
-            cout << a << ".";
-            for (int i = 0; i < line.size(); i++)
-            {
-                char c = line[i];
-                if (c == symbol)
-                {
-                    found = true;
-                    continue;
-                }
-                if (c == '$')
-                {
-                    break;
-                }
-                if (found)
-                {
-                    cout << c;
-                }
-            }
-            cout << "  ";
-            a++;
-        }
-        outfile.close();
-    }
-    void showAnswer(int a)
-    {
-        ifstream outfile("answer.txt");
-        string line;
-        int b[5];
-        int g = 0;
-        cout << endl;
-        cout << "Question:" << endl;
-        while (getline(outfile, line))
-        { // read file line by line
-            bool found = false;
-            char symbol = '$';
-            g++;
-            if (g == a)
-            {
-                for (int i = 0; i < line.size(); i++)
-                {
-                    char c = line[i];
-                    if (c == symbol)
-                    {
-                        found = true;
-                        continue;
-                    }
-                    if (found)
-                    {
-                        cout << c << " ";
-                    }
-                }
-            }
-        }
-        cout << endl;
-        outfile.close();
-        char l;
-        cout << "do you want to evaluate (Y/N)" << endl;
-        cin >> l;
-        char h;
-        string korishga;
-        if (l == 'Y' || l == 'y')
-        {
-            ofstream outfile("Marks.txt", ios::app);
-            ifstream file("answers.txt", ios::app);
-            if (!outfile.is_open())
-            {
-                cout << "Failed to open file." << endl;
-            }
-            string line;
-            char c;
-            char d = '#';
-            outfile << d;
-            int g = 0;
-            while (getline(file, line))
-            {
-                g++;
-                bool found = false;
-                char symbol = '#';
-                if (g == a)
-                {
-                    for (int i = 0; i < line.size(); i++)
-                    {
-                        char c = line[i];
-                        if (c == symbol)
-                        {
-                            found = true;
-                            continue;
-                        }
-                        if (c == '$')
-                        {
-                            break;
-                        }
-                        if (found)
-                        {
-                            outfile << c;
-                        }
-                    }
-                }
-            }
-            outfile << d;
-            char h = '%';
-            outfile << h;
-            while (getline(file, line))
-            { // read file line by line
-                bool found = false;
-                char symbol = '$';
-                g++;
-                if (g == a)
-                {
-                    for (int i = 0; i < line.size(); i++)
-                    {
-                        char c = line[i];
-                        if (c == symbol)
-                        {
-                            found = true;
-                            continue;
-                        }
-                        if (found)
-                        {
-                            outfile << c;
-                        }
-                    }
-                }
-            }
-        }
-        outfile << h;
-        char ch;
-        cout << "type '$' when it is done" << endl;
-        outfile << "$";
-        do
-        {
-            cin >> ch;
-            outfile.put(ch);
-
-        } while (ch != '$');
-        file.close();
-        outfile.close();
-    }
-}
-
-;

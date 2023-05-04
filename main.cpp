@@ -1,79 +1,63 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <Classes.h>
-#define Clear system("cls");
+#include "Classes.h"
 using namespace std;
+
 int main()
 {
     string app_state = "executing";
-    Student student;
     Teacher teacher;
-    do
+    Student student;
+
+    while (app_state == "executing")
     {
-        string role_state = "executing";
         int role;
-        string name, password;
-
-        do
-        {
-            cout << "1. Student.\n2. Teacher.\n3. Out.\n>";
-            cin >> role;
-            switch (role)
-            {
+        cout << "Choose a role:\n1. Teacher.\n2. Student.\n3. Exit\n>";
+        cin >> role;
+        switch (role) {
+        case 1:
+            int teacherAction;
+            cout << "Choose an action: \n1. Sign up.\n2. Login.\n3. Back\n>";
+            cin >> teacherAction;
+            switch (teacherAction) {
             case 1:
-                int option;
-                cout << "1. Sign up.\n2. Login.\n3. Out\n>";
-                cin >> option;
-                switch (option)
-                {
-                case 1:
-                    cout << "Enter your name: ";
-                    cin >> name;
-                    cout << "Enter your password: ";
-                    cin >> password;
-                    student.filesaver(name, password);
-                    break;
-                case 2:
-                    cout << "Enter your name: ";
-                    cin >> name;
-                    cout << "Enter your password: ";
-                    cin >> password;
-
-                    student.filereader(name, password);
-                    break;
-                case 0:
-                    exit(0);
-                    break;
-                default:
-                    cout << "Invalid credentials!";
-                    break;
-                }
+                teacher.signup();
                 break;
             case 2:
-                cout << "Enter your name: ";
-                cin >> name;
-                cout << "Enter your password: ";
-                cin >> password;
-
-                teacher.filereader(name, password);
+                teacher.login();
                 break;
-
             case 3:
-                app_state = "exit";
                 break;
             default:
-                cout << "Invalid credentials!";
+                cout << "Invalid credentials!\n";
                 break;
             }
-        } while (role_state == "executing");
-
-    } while (app_state == "executing");
-
-    Essay s;
-    s.writer();
-    Essay c;
-    c.showStudentsNames();
+        case 2:
+            int studentAction;
+            cout << "Choose an action: \n1. Sign up.\n2. Login.\n3. Back\n>";
+            cin >> studentAction;
+            switch (studentAction) {
+            case 1:
+                student.signup();
+                break;
+            case 2:
+                student.login();
+                break;
+            case 3:
+                break;
+            default:
+                cout << "Invalid credentials!\n";
+                break;
+            }
+        case 3:
+            app_state = "exit";
+            break;
+        default:
+            cout << "Invalid credentials!\n";
+            break;
+        }
+    }
 
     return 0;
 }
