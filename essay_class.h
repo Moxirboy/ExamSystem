@@ -6,7 +6,7 @@
 using namespace std;
 class essay
 {
-public:
+protected:
     void writer()
     {
         char character;
@@ -510,7 +510,7 @@ public:
             file.close();
             cout << "Enter which answer of question do you want to see?" << endl;
             cin >> choice;
-            int helper1 = 0;
+            int helper1=0;
             cout << "Your mark is ";
             while (getline(file, line))
             { // read file line by line
