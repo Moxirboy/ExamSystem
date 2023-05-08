@@ -1,2 +1,9 @@
-2-2
-maruf-z
+Name: Maruf
+Password: zak
+---
+Name: maruf
+Password: zakirov
+---
+Name: test
+Password: jan
+---

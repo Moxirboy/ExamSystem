@@ -1,5 +1,3 @@
-maruf-zak
-mohir-mohir
-a-b
-maruf-weiuhfuiewhfiuwef
-nuriddin-student
+Name: student
+Password: 12
+---

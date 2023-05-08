@@ -31,12 +31,15 @@ int main()
                 if (teacher.login() == 1)
                 {
                     int option;
-                    cout << "Choose option: \n1. Create multiple choice questions test.\n>";
+                    cout << "Choose option: \n1. Create multiple choice test.\n2. Create essay test.\n>";
                     cin >> option;
                     switch (option)
                     {
                     case 1:
                         teacher.create_test();
+                        break;
+                    case 2:
+                        teacher.create_essay();
                         break;
                     default:
                         break;
@@ -60,8 +63,27 @@ int main()
                 student.signup();
                 break;
             case 2:
-                student.login();
+            {
+                bool isLoggedIn = student.login();
+                if (isLoggedIn)
+                {
+                    int option;
+                    cout << "Choose option:\n1. Go to tests.\n2. Go to essays\n3. Logout.\n>";
+                    cin >> option;
+
+                    switch (option)
+                    {
+                    case 1:
+                        student.showTests();
+                        break;
+                    case 2:
+                        student.showEssays();
+                    default:
+                        break;
+                    }
+                }
                 break;
+            }
             case 3:
                 break;
             default:
