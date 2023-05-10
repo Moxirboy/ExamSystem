@@ -1,3 +1,5 @@
 Name: student
 Password: 12
+---Name: nuriddin
+Password: 321
 ---

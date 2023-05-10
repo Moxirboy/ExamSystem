@@ -1,22 +1,9 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "Utils.h"
 
 using namespace std;
-
-bool is_digit_only(string input)
-{
-    bool return_value = true;
-    for (int i = 0; i < input.size(); i++)
-    {
-        if (!isdigit(input[i]))
-        { // if not digit
-            return_value = false;
-        }
-    }
-    return return_value;
-}
-
 class Person
 {
 private:
@@ -79,6 +66,8 @@ public:
         file << "Name: " << name << endl;
         file << "Password: " << password << endl
              << "---" << endl;
+
+        file.close();
     }
 
     string get_name()
@@ -102,7 +91,7 @@ public:
 class Teacher : public Person
 {
 public:
-    void signup()
+    bool signup()
     {
         string name;
         string password;
@@ -124,6 +113,8 @@ public:
             save_user(name, password, "teachers.txt");
             cout << "Teacher successfully created!" << endl;
         }
+
+        return !user_exists;
     }
 
     bool login()
@@ -141,11 +132,13 @@ public:
         {
             set_name(name);
             set_password(password);
+            clear();
             cout << "Successfully logged in!" << endl;
         }
         else
         {
-            cout << "Invalid Credentials!" << endl;
+            clear();
+            cout << "* Invalid credentials! *" << endl;
         }
 
         return is_user_valid;
@@ -233,6 +226,8 @@ public:
              << "---" << endl;
 
         cout << "Essay successfully created!\n";
+
+        file.close();
     }
 
     void create_subjective()
@@ -252,6 +247,8 @@ public:
 
         file << "Question: " << question << endl
              << "---" << endl;
+
+        file.close();
     }
 
     void show_test_answers()
@@ -268,6 +265,8 @@ public:
         {
             cout << line << endl;
         }
+
+        file.close();
     }
 
     void show_essay_answers()
@@ -285,6 +284,8 @@ public:
         {
             cout << line << endl;
         }
+
+        file.close();
     }
 
     void show_subjective_answers()
@@ -302,13 +303,15 @@ public:
         {
             cout << line << endl;
         }
+
+        file.close();
     }
 };
 
 class Student : public Person
 {
 public:
-    void signup()
+    bool signup()
     {
         string name;
         string password;
@@ -327,6 +330,8 @@ public:
             save_user(name, password, "students.txt");
             cout << "Student successfully created!" << endl;
         }
+
+        return !student_exists;
     }
 
     bool login()
@@ -348,7 +353,8 @@ public:
         }
         else
         {
-            cout << "Invalid Credentials!" << endl;
+            clear();
+            cout << "* Invalid credentials! *" << endl;
         }
 
         return is_user_valid;
@@ -521,6 +527,9 @@ public:
 
             cout << "Answer recorded!" << endl;
         }
+
+        essay_file.close();
+        essay_answers_file.close();
     }
 
     void showSubjective()
@@ -584,5 +593,8 @@ public:
                                     << "---" << endl;
             cout << "Answer recorded!" << endl;
         }
+
+        subjective_file.close();
+        subjective_answers_file.close();
     }
 };

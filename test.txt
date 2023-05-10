@@ -1,34 +1,19 @@
-Test name: Basic info 
-Question1: Where do you study?
-a) university
-b) school
-c) work
-Correct Answer: a
-Question2: what is your age?
-a) 16
-b) 17
-c) 18
-Correct Answer: b
-Question3: your school num ?
-a) 103
-b) 167
-c) 199
+Test name: n1
+Question1: nima ?
+a) 1
+b) 2
+c) 3
+Correct Answer: c
+Question2: qani
+a) 3
+b) 2
+c) 1
 Correct Answer: b
 ---
-Test name: bolla go quest ?
-Question1: kim boradi?
-a) mohir
-b) mirvohid
-c) maruf
+Test name: 1
+Question1: 1
+a) 1
+b) 1
+c) 1
 Correct Answer: a
-Question2: nma gap?
-a) yazshi
-b) yomon
-c) zor
-Correct Answer: c
-Question3: hhh
-a) a
-b) b
-c) c
-Correct Answer: b
 ---

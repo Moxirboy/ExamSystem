@@ -1,11 +1,12 @@
-Name: Maruf
-Password: zak
+Name: nuriddin
+Password: 123
+---
+Name: man
+Password: man
 ---
 Name: maruf
-Password: zakirov
+Password: zak
 ---
-Name: test
-Password: jan
----Name: hgj
-Password: hjggde4567667
+Name: Maruf
+Password: zak
 ---
