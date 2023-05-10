@@ -1,0 +1,4 @@
+Name: student
+Test name: Basic info 
+Points: 2/3
+---

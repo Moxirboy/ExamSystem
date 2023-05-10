@@ -1,0 +1,12 @@
+Name: student
+Question: My subjective question.
+Answer: hello there
+---
+Name: student
+Question: my question
+Answer: hi
+---
+Name: student
+Question: my question
+Answer: a
+---

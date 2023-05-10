@@ -15,3 +15,20 @@ b) 167
 c) 199
 Correct Answer: b
 ---
+Test name: bolla go quest ?
+Question1: kim boradi?
+a) mohir
+b) mirvohid
+c) maruf
+Correct Answer: a
+Question2: nma gap?
+a) yazshi
+b) yomon
+c) zor
+Correct Answer: c
+Question3: hhh
+a) a
+b) b
+c) c
+Correct Answer: b
+---

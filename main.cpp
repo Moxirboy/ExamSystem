@@ -31,7 +31,7 @@ int main()
                 if (teacher.login() == 1)
                 {
                     int option;
-                    cout << "Choose option: \n1. Create multiple choice test.\n2. Create essay test.\n>";
+                    cout << "Choose option: \n1. Create multiple choice test.\n2. Create essay test.\n3. Create subjective question.\n4. Show essay answers.\n5. Show subjective questions answers.\n6. Show test answers.\n>";
                     cin >> option;
                     switch (option)
                     {
@@ -40,6 +40,18 @@ int main()
                         break;
                     case 2:
                         teacher.create_essay();
+                        break;
+                    case 3:
+                        teacher.create_subjective();
+                        break;
+                    case 4:
+                        teacher.show_essay_answers();
+                        break;
+                    case 5:
+                        teacher.show_subjective_answers();
+                        break;
+                    case 6:
+                        teacher.show_test_answers();
                         break;
                     default:
                         break;
@@ -68,7 +80,7 @@ int main()
                 if (isLoggedIn)
                 {
                     int option;
-                    cout << "Choose option:\n1. Go to tests.\n2. Go to essays\n3. Logout.\n>";
+                    cout << "Choose option:\n1. Go to tests.\n2. Go to essays.\n3. Go to subjective questions.\n4.  Logout.\n>";
                     cin >> option;
 
                     switch (option)
@@ -78,6 +90,10 @@ int main()
                         break;
                     case 2:
                         student.showEssays();
+                        break;
+                    case 3:
+                        student.showSubjective();
+                        break;
                     default:
                         break;
                     }
