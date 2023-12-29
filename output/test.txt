@@ -1,27 +1,33 @@
-<<<<<<< Updated upstream
-#poqi#
-$
-poqi qanday bola
-
-
-$
-#yoga#
-$
-hoho lala$
-#jojo#
-$
-rperedfk $
-=======
-#komol#$komolkochagachiqadimi$
-#komol#$kochagachiqadimi$
-#komol#$komolchiqadimi$
-#komol#$komolkochaga$
-#komol#$komolkochagachiqadimi$
-#komol#$komolkochagachiqadimi$
-#komol#$komolkochagachiqadimi$
-#komol#$komolkochagachiqadimi$
-#hacha#$jdfjkdfkjdfkjfdkhdfh$
-#koko#$gogokdkkfgoogdjfjjfkfkf$
-#qoq#$skjdkljfklsd$
-#jjdf#$fkjgkdjg$
->>>>>>> Stashed changes
+Test name: n1
+Question1: nima ?
+a) 1
+b) 2
+c) 3
+Correct Answer: c
+Question2: qani
+a) 3
+b) 2
+c) 1
+Correct Answer: b
+---
+Test name: 1
+Question1: 1
+a) 1
+b) 1
+c) 1
+Correct Answer: a
+---
+Test name: you
+Question1: you
+a) yuo
+b) yui
+c) yui
+Correct Answer: a
+---
+Test name: test
+Question1: weer
+a) qwe
+b) qw
+c) qw
+Correct Answer: a
+---

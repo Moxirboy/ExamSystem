@@ -1,0 +1,11 @@
+Name: student
+Password: 12
+---Name: nuriddin
+Password: 321
+---
+Name: moxirboy
+Password: 123
+---
+Name: moxirboy
+Password: kol
+---

@@ -1,0 +1,21 @@
+Name: nuriddin
+Password: 123
+---
+Name: man
+Password: man
+---
+Name: maruf
+Password: zak
+---
+Name: Maruf
+Password: zak
+---
+Name: mox11boy11
+Password: dskf
+---
+Name: moxirboy
+Password: 123
+---
+Name: moxirboy
+Password: mok
+---
